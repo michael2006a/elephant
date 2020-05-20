@@ -29,6 +29,11 @@ public class PdfToExcel {
 // Save the output to XLS format
 document.save("ConvertedFile.xls", excelsave);*/
 
+  public static void main(String[] args) {
+    PdfToExcel pdfToExcel = new PdfToExcel();
+    pdfToExcel.loadPdf();
+  }
+
   public void loadPdf() {
 
     try {
@@ -42,10 +47,5 @@ document.save("ConvertedFile.xls", excelsave);*/
     } catch (IOException e) {
       e.printStackTrace();
     }
-  }
-
-  public static void main(String[] args) {
-    PdfToExcel pdfToExcel = new PdfToExcel();
-    pdfToExcel.loadPdf();
   }
 }

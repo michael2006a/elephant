@@ -50,6 +50,26 @@ public class ReadExcel {
   }
 
   /**
+   * 是否是2003的excel，返回true是2003
+   *
+   * @param filePath 文件完整路径
+   * @return boolean true代表是2003
+   */
+  public static boolean isExcel2003(String filePath) {
+    return filePath.matches("^.+\\.(?i)(xls)$");
+  }
+
+  /**
+   * 是否是2007的excel，返回true是2007
+   *
+   * @param filePath 文件完整路径
+   * @return boolean true代表是2007
+   */
+  public static boolean isExcel2007(String filePath) {
+    return filePath.matches("^.+\\.(?i)(xlsx)$");
+  }
+
+  /**
    * 得到总行数
    */
   public int getTotalRows() {
@@ -274,26 +294,6 @@ public class ReadExcel {
       dataLst.add(rowLst);
     }
     return dataLst;
-  }
-
-  /**
-   * 是否是2003的excel，返回true是2003
-   *
-   * @param filePath 文件完整路径
-   * @return boolean true代表是2003
-   */
-  public static boolean isExcel2003(String filePath) {
-    return filePath.matches("^.+\\.(?i)(xls)$");
-  }
-
-  /**
-   * 是否是2007的excel，返回true是2007
-   *
-   * @param filePath 文件完整路径
-   * @return boolean true代表是2007
-   */
-  public static boolean isExcel2007(String filePath) {
-    return filePath.matches("^.+\\.(?i)(xlsx)$");
   }
 
 }

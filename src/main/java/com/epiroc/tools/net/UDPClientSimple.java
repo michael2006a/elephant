@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetSocketAddress;
-import java.net.SocketException;
 
 /**
  * @author : Herbert Yin
@@ -20,7 +19,8 @@ public class UDPClientSimple {
   public static void main(String[] args) throws IOException {
     byte[] buf = new String("Hello").getBytes();
     //UDP是无连接的，所以要在发送的数据包裹中指定要发送到的ip：port
-    DatagramPacket dp = new DatagramPacket(buf, buf.length, new InetSocketAddress("127.0.0.1", 5289));
+    DatagramPacket dp = new DatagramPacket(buf, buf.length,
+        new InetSocketAddress("10.86.93.246", 5289));
     //指明发送端的端口号
     DatagramSocket ds = new DatagramSocket(5291);
     ds.send(dp);

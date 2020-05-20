@@ -25,7 +25,7 @@ public class Itext7PdfToExcel {
   private static final Logger logger = LoggerFactory.getLogger(Itext7PdfToExcel.class);
 
 
-  public static void main(String[] args){
+  public static void main(String[] args) {
     Itext7PdfToExcel itext7PdfToExcel = new Itext7PdfToExcel();
     itext7PdfToExcel.load();
   }
