@@ -22,29 +22,29 @@ import org.slf4j.LoggerFactory;
  */
 public class Itext7PdfToExcel {
 
-  private static final Logger logger = LoggerFactory.getLogger(Itext7PdfToExcel.class);
+    private static final Logger logger = LoggerFactory.getLogger(Itext7PdfToExcel.class);
 
 
-  public static void main(String[] args) {
-    Itext7PdfToExcel itext7PdfToExcel = new Itext7PdfToExcel();
-    itext7PdfToExcel.load();
-  }
+    public static void main (String[] args) {
+        Itext7PdfToExcel itext7PdfToExcel = new Itext7PdfToExcel();
+        itext7PdfToExcel.load();
+    }
 
-  public void load() {
-    PdfReader reader;
+    public void load () {
+        PdfReader reader;
 
-    try {
-      reader = new PdfReader("D:\\pdf\\I20190000159516081.pdf");
+        try {
+            reader = new PdfReader("D:\\pdf\\I20190000159516081.pdf");
 
-      PdfDocument pdfDocument = new PdfDocument(reader);
-      PdfDocumentContentParser parser = new PdfDocumentContentParser(pdfDocument);
-      SimpleTextExtractionStrategy strategy;
+            PdfDocument pdfDocument = new PdfDocument(reader);
+            PdfDocumentContentParser parser = new PdfDocumentContentParser(pdfDocument);
+            SimpleTextExtractionStrategy strategy;
 
-      String line = null;
+            String line = null;
 //    for (int i = 1; i <= reader.get; i++) {
-      strategy = parser.processContent(1, new SimpleTextExtractionStrategy());
-      line = strategy.getResultantText();
-      System.out.println("line --- " + line);
+            strategy = parser.processContent(1, new SimpleTextExtractionStrategy());
+            line = strategy.getResultantText();
+            System.out.println("line --- " + line);
 //    }
 
 //conversion starts here....
@@ -52,7 +52,7 @@ public class Itext7PdfToExcel {
 //    HSSFRow myRow = null;
 //    HSSFCell myCell = null;
 //    CreationHelper helper = myWorkBook.getCreationHelper();
-      List<String> lines = IOUtils.readLines(new StringReader(line));
+            List<String> lines = IOUtils.readLines(new StringReader(line));
 
 //    for (int i = 0; i < lines.size(); i++) {
 //      String str[] = lines.get(i).split(",");
@@ -70,9 +70,9 @@ public class Itext7PdfToExcel {
 //    } catch (FileNotFoundException e) {
 //      System.out.println("FILE NOT FOUND");
 //    }
-      reader.close();
-    } catch (IOException e) {
-      e.printStackTrace();
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
-  }
 }

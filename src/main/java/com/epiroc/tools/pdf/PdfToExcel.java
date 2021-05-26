@@ -20,7 +20,7 @@ import org.slf4j.LoggerFactory;
  */
 public class PdfToExcel {
 
-  private static final Logger logger = LoggerFactory.getLogger(PdfToExcel.class);
+    private static final Logger logger = LoggerFactory.getLogger(PdfToExcel.class);
 
   /*// Load PDF document
   Document document = new Document("Test.pdf");
@@ -29,23 +29,23 @@ public class PdfToExcel {
 // Save the output to XLS format
 document.save("ConvertedFile.xls", excelsave);*/
 
-  public static void main(String[] args) {
-    PdfToExcel pdfToExcel = new PdfToExcel();
-    pdfToExcel.loadPdf();
-  }
-
-  public void loadPdf() {
-
-    try {
-      PDDocument document = PDDocument.load(new File("D:\\pdf\\I20190000159516081.pdf"));
-      PDDocumentCatalog docCatalog = document.getDocumentCatalog();
-      PDAcroForm acroForm = docCatalog.getAcroForm();
-      PDFTextStripper textStripper = new PDFTextStripper();
-      String text = textStripper.getText(document);
-      System.out.println(text);
-//      document.save("D:\\pdf\\I20190000159516081.doc");
-    } catch (IOException e) {
-      e.printStackTrace();
+    public static void main (String[] args) {
+        PdfToExcel pdfToExcel = new PdfToExcel();
+        pdfToExcel.loadPdf();
     }
-  }
+
+    public void loadPdf () {
+
+        try {
+            PDDocument document = PDDocument.load(new File("D:\\pdf\\I20190000159516081.pdf"));
+            PDDocumentCatalog docCatalog = document.getDocumentCatalog();
+            PDAcroForm acroForm = docCatalog.getAcroForm();
+            PDFTextStripper textStripper = new PDFTextStripper();
+            String text = textStripper.getText(document);
+            System.out.println(text);
+//      document.save("D:\\pdf\\I20190000159516081.doc");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
